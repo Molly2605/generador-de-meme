@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Memes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Generador de Memes</h1>
+        <nav>
+            <button class="toggleImagePanel" id="toggleImagePanel">Imagen</button>
+            <button class="toggleTextPanel" id="toggleTextPanel">Texto</button>
+            <button class="toggleDarkMode" id="toggleDarkMode">
+                <i class="far fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+    <main>
+        <aside id="sidebar">
+            <div id="imageFilters" style="display: block;">
+                <h2>Filtros de Imagen</h2>
+                <ul id="filterList">
+                    <li>
+                        <label for="brightness">Brillo:</label>
+                        <input type="range" id="brightness" name="brightness" min="0" max="200" value="100">
+                    </li>
+                    <li>
+                        <label for="opacity">Opacidad:</label>
+                        <input type="range" id="opacity" name="opacity" min="0" max="100" value="100">
+                    </li>
+                    <li>
+                        <label for="contrast">Contraste:</label>
+                        <input type="range" id="contrast" name="contrast" min="0" max="200" value="100">
+                    </li>
+                    <li>
+                        <label for="blur">Desenfoque:</label>
+                        <input type="range" id="blur" name="blur" min="0" max="10" value="0">
+                    </li>
+                    <li>
+                        <label for="grayscale">Escala de grises:</label>
+                        <input type="range" id="grayscale" name="grayscale" min="0" max="100" value="0">
+                    </li>
+                    <li>
+                        <label for="sepia">Sepia:</label>
+                        <input type="range" id="sepia" name="sepia" min="0" max="100" value="0">
+                    </li>
+                    <li>
+                        <label for="hue">Tono (Hue):</label>
+                        <input type="range" id="hue" name="hue" min="0" max="360" value="0">
+                    </li>
+                    <li>
+                        <label for="saturate">Saturación:</label>
+                        <input type="range" id="saturate" name="saturate" min="0" max="200" value="100">
+                    </li>
+                    <li>
+                        <label for="invert">Negativo:</label>
+                        <input type="range" id="invert" name="invert" min="0" max="100" value="0">
+                    </li>
+                </ul>
+                <button id="resetFilters">Restablecer Filtros</button>
+            </div>
+
+            <div id="textOptions" style="display: none;">
+                <h2>Opciones de Texto</h2>
+                <ul id="textOptionsList">
+                    <li><button id="editTopText">Editar texto superior</button></li>
+                    <li><button id="removeTopText">Remover texto superior</button></li>
+                    <li><button id="editBottomText">Editar texto inferior</button></li>
+                    <li><button id="removeBottomText">Remover texto inferior</button></li>
+                    <li>
+                        <label for="fontFamily">Cambiar familia de fuente:</label>
+                        <select id="fontFamily">
+                            <option value="Arial, sans-serif">Arial</option>
+                            <option value="Helvetica, sans-serif">Helvetica</option>
+                            <option value="Verdana, sans-serif">Verdana</option>
+                            <option value="Georgia, serif">Georgia</option>
+                            <option value="Times New Roman, serif">Times New Roman</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="fontSize">Cambiar tamaño de fuente:</label>
+                        <input type="range" id="fontSize" name="fontSize" min="10" max="50" value="20">
+                    </li>
+                    <li>
+                        <label for="textAlign">Cambiar alineación:</label>
+                        <select id="textAlign">
+                            <option value="left">Izquierda</option>
+                            <option value="center">Centro</option>
+                            <option value="right">Derecha</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="textColor">Cambiar color de texto:</label>
+                        <input type="color" id="textColor" name="textColor" value="#000000">
+                    </li>
+                    <li>
+                        <label for="backgroundColor">Cambiar color de fondo de texto:</label>
+                        <input type="color" id="backgroundColor" name="backgroundColor" value="#ffffff">
+                    </li>
+                    <li>
+                        <label for="transparentBackground">Fondo transparente:</label>
+                        <input type="checkbox" id="transparentBackground" name="transparentBackground">
+                    </li>
+                    <li>
+                        <label for="textPadding">Cambiar padding de texto:</label>
+                        <input type="range" id="textPadding" name="textPadding" min="0" max="50" value="10">
+                    </li>
+                    <li>
+                        <label for="lineHeight">Cambiar alto de línea de texto:</label>
+                        <input type="range" id="lineHeight" name="lineHeight" min="1" max="3" step="0.1" value="1">
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <section id="memeEditor">
+            <form id="imageForm">
+                <label for="imageUrl">Ingresa el enlace de la imagen:</label>
+                <input type="text" id="imageUrl" name="imageUrl" required>
+                <button type="submit">Cargar Imagen</button>
+            </form>
+            <div class="memeTemplate">
+                <p id="topTextDisplay" class="meme-text">TOP TEXT</p>
+                <div id="imageContainer">
+                    <img id="memeImage" src="" alt="Imagen del meme">
+                </div>
+                <p id="bottomTextDisplay" class="meme-text">BOTTOM TEXT</p>
+                <button id="downloadButton">Descargar Meme</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

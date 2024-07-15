@@ -1,0 +1,330 @@
+/*fuente*/
+.raleway {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway";
+  background-color: #f5e1e1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #30262b;
+}
+
+header {
+  background-color: #d47fa6;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex: 1;
+}
+
+aside {
+  width: 200px;
+  background-color: #e3b8c3;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+#memeEditor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+#imageForm {
+  margin-bottom: 20px;
+}
+
+#imageForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#imageUrl {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+#imageContainer {
+  width: 100%;
+  flex-grow: 1;
+  background-size: cover;
+}
+
+#memeImage {
+  width: 100%;
+  flex-grow: 1;
+  background-size: cover;
+}
+
+.memeTemplate {
+  width: 100%;
+  max-width: 610px;
+  height: 610px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+select,
+input[type="color"],
+input[type="range"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.meme-text {
+  font-family:"Raleway";
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  position: static;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+#topTextDisplay {
+  top: 10%;
+}
+
+#bottomTextDisplay {
+  bottom: 10%;
+}
+
+#sidebar h2 {
+  margin-bottom: 10px;
+}
+
+#textOptionsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+
+/*buttons*/
+.toggleImagePanel{
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color:#30262b;
+    border: 2px solid #30262b;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+.toggleImagePanel:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #e3b8c3;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.toggleImagePanel:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.toggleImagePanel:hover::before {
+    scale: 3;
+}
+
+.toggleImagePanel:active {
+    scale: 1;
+}
+  
+
+.toggleTextPanel{
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color:#30262b;
+    border: 2px solid #30262b;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+.toggleTextPanel:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #e3b8c3;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.toggleTextPanel:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.toggleTextPanel:hover::before {
+    scale: 3;
+}
+
+.toggleTextPanel:active {
+    scale: 1;
+}
+
+.toggleDarkMode{
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color:#30262b;
+    border: 2px solid #30262b;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+.toggleDarkMode:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: #e3b8c3;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.toggleDarkMode:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.toggleDarkMode:hover::before {
+    scale: 5;
+}
+
+.toggleDarkMode:active {
+    scale: 1;
+}
+
+nav button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+nav button:hover {
+  text-decoration: underline;
+}
+
+
+button {
+    background-color: #d47fa6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #8a4565;
+}
+
+
+/*dark mode*/
+body.dark-mode {
+  background-color: #644c57;
+  color: #ffffff;
+}
+
+body.dark-mode aside {
+  background-color: #7e3b5a;
+  color: #ffffff;
+}
+
+body.dark-mode header {
+  background-color: #a03567;
+  color: #ffffff;
+}
+
+/*media*/
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  #memeEditor {
+    width: 100%;
+    padding: 10px;
+  }
+}
